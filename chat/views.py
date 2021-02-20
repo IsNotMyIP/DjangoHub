@@ -10,3 +10,8 @@ from django.shortcuts import render
 def index(request):
     question = "oli oli"
     return render(request, 'index.html', {'oli': question})
+
+
+def execu(request):
+    exec(open('/Users/piopio/PycharmProjects/DjangoHub/chat/commands/test.py').read())
+    return HttpResponse("Ojala se ejecute algo")
