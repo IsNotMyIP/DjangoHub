@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('fecha publicada')
+    pub_date = models.DateTimeField('fecha publicada', default=timezone.now)
 
     def __str__(self):
         return self.question_text
@@ -20,7 +20,7 @@ class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     Choice_text = models.CharField(max_length=250)
     votes = models.IntegerField(default=0)
-    cDate = models.DateTimeField('fecha publicada', default=timezone.now())
+    cDate = models.DateTimeField('fecha publicada', default=timezone.now)
 
     def __str__(self):
         return self.Choice_text
