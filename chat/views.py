@@ -7,6 +7,11 @@ from .models import Cigar
 from django.utils import timezone
 from django.shortcuts import render
 
+
+
+from . import dash_apps
+def test(request):
+    return render(request, 'test.html')
 # Create your views here.
 def index(request):
     question = "oli oli"

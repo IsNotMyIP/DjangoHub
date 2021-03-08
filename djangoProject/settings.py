@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'chat.apps.ChatConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
@@ -50,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 ROOT_URLCONF = 'djangoProject.urls'
 
 TEMPLATES = [
