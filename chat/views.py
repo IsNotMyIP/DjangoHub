@@ -12,13 +12,20 @@ def index(request):
     question = "oli oli"
     return render(request, 'index.html', {'oli': question})
 
-def toSmoke(request):
+def cigars(request):
+    cigarList = Cigar.objects.order_by('-pub_date')[:10]
+    context = {'cigar_List': cigarList, }
+    return render(request, 'cigars.html', context)
 
-    if(request.POST):
-        print("Ha")
+def toSmoke(request):
+    if request.method == 'POST':
+        print("holo")
+        cigar = Cigar(stopped=True)
+        cigar.save()
+        return render(request, 'index.html')
     cigar = Cigar(stopped=False)
     cigar.save()
-    return HttpResponse("Received")
+    return render(request, 'index.html')
 
 def execu(request):
     exec(open('/Users/piopio/PycharmProjects/DjangoHub/chat/commands/test.py').read())
