@@ -7,8 +7,8 @@ def chat_cigar(nrows=5):
 
 
     for i in range(nrows):
-        start_date = datetime.datetime(2020, 1, 1)
-        end_date = datetime.datetime(2020, 2, 1)
+        start_date = datetime.datetime(2021, 1, 1)
+        end_date = datetime.datetime(2021, 3, 20)
 
         time_between_dates = end_date - start_date
         days_between_dates = time_between_dates.total_seconds()

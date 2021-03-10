@@ -12,7 +12,6 @@ from . import dash_apps
 
 
 def test(request):
-    DummyData.chat_cigar(20)
     return render(request, 'test.html')
 # Create your views here.
 def index(request):

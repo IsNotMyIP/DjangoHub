@@ -4,18 +4,19 @@ import dash_html_components as html
 import plotly.express as px
 import pandas as pd
 from .models import Cigar
-
+import plotly.graph_objs as go
 from django_plotly_dash import DjangoDash
 
 app = DjangoDash('SimpleExample')
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-df = pd.DataFrame({
-    "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-    "Amount": [4, 1, 2, 2, 4, 5],
-    "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-})
+df = pd.DataFrame(list(Cigar.objects.order_by('-pub_date').values()))
+#df = px.data.tips()
 
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+print(df.describe())
+print(df.pub_date.describe())
+df['DateTime'] = pd.to_datetime(df['pub_date'], format='%y-%d-%m %H:%M')
+print("HOla?")
+fig = px.bar(df, x="DateTime", y="stopped")
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
@@ -26,7 +27,8 @@ app.layout = html.Div(children=[
 
     dcc.Graph(
         id='example-graph',
-        figure=fig
+
+        figure= fig
     )
 ])
 def generate_table(dataframe, max_rows=10):
