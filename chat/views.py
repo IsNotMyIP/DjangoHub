@@ -27,10 +27,10 @@ def cigars(request):
 def toSmoke(request):
     if request.method == 'POST':
         print("holo")
-        cigar = Cigar(stopped=True)
+        cigar = Cigar(stopped=-1)
         cigar.save()
         return render(request, 'index.html')
-    cigar = Cigar(stopped=False)
+    cigar = Cigar(stopped=1)
     cigar.save()
     return render(request, 'index.html')
 

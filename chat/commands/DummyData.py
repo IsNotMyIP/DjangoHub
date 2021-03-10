@@ -16,5 +16,9 @@ def chat_cigar(nrows=5):
         random_date = start_date + datetime.timedelta(seconds=random_number_of_days)
         print(random_date)
         stoppedo = bool(random.getrandbits(1))
+        if stoppedo:
+            stoppedo = -1
+        else:
+            stoppedo = 1
         print(stoppedo)
         Cigar(pub_date=random_date, stopped=stoppedo).save()

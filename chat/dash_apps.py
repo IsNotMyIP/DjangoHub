@@ -40,6 +40,8 @@ def generate_table(dataframe, max_rows=10):
             ]) for i in range(min(len(dataframe), max_rows))
         ])
     ])
+
+
 listap = DjangoDash("ListaCigars")
 aux = pd.DataFrame(list(Cigar.objects.order_by('-pub_date').values()))
 listap.layout = html.Div(children=[
