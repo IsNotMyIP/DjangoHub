@@ -6,11 +6,13 @@ from django.urls import reverse
 from .models import Cigar
 from django.utils import timezone
 from django.shortcuts import render
-
-
+from .commands import DummyData
 
 from . import dash_apps
+
+
 def test(request):
+    DummyData.chat_cigar(20)
     return render(request, 'test.html')
 # Create your views here.
 def index(request):
@@ -18,7 +20,7 @@ def index(request):
     return render(request, 'index.html', {'oli': question})
 
 def cigars(request):
-    cigarList = Cigar.objects.order_by('-pub_date')[:10]
+    cigarList = Cigar.objects.order_by('-pub_date')
     context = {'cigar_List': cigarList, }
     return render(request, 'cigars.html', context)
 
