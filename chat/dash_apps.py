@@ -42,12 +42,16 @@ fig.add_trace(go.Histogram(
     opacity=0.75
 ))
 fig.update_layout(barmode='stack')
-app.layout = html.Div(children=[
+
+def layouto():
+    return html.Div(children=[
     html.H1(children='Hello Dash'),
 
     html.Div(children='''
         Dash: A web application framework for Python.
     '''),
+
+
 
     dcc.Graph(
         id='example-graph',
@@ -59,6 +63,10 @@ app.layout = html.Div(children=[
     dcc.Markdown(id='hoverdata-text')
 ])
 ])
+
+app.layout = layouto
+
+
 @app.callback(dash.dependencies.Output('hoverdata-text','children'),
              [dash.dependencies.Input('example-graph','figure')])
 def callback_stats(hoverData):
