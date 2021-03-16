@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'aUsers.apps.AusersConfig',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'chat.apps.ChatConfig',
     'polls.apps.PollsConfig',

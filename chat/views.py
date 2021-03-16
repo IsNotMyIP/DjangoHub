@@ -7,12 +7,17 @@ from .models import Cigar
 from django.utils import timezone
 from django.shortcuts import render
 from .commands import DummyData
-
+from django.shortcuts import render, redirect
 from . import dash_apps
 
 
 def test(request):
-    return render(request, 'test.html')
+    if request.user.is_authenticated:
+        print(request.user)
+        return render(request, 'test.html')
+    else:
+        question = "oli oli"
+        return redirect('/login/')
 # Create your views here.
 def index(request):
     question = "oli oli"

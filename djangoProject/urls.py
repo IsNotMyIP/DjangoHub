@@ -20,5 +20,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('chat/', include('chat.urls')),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
+    path('login/', include('aUsers.urls')),
     path('admin/', admin.site.urls),
 ]
