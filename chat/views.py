@@ -3,6 +3,7 @@ from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from .models import Cigar
 from django.utils import timezone
 from django.shortcuts import render
@@ -33,7 +34,6 @@ def cigars(request):
 
 def toSmoke(request):
     if request.method == 'POST':
-        print("holo")
         cigar = Cigar(stopped=-1)
         cigar.save()
         return render(request, 'index.html')
