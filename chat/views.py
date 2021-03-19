@@ -40,3 +40,7 @@ def toSmoke(request):
 def execu(request):
     exec(open('/Users/piopio/PycharmProjects/DjangoHub/chat/commands/test.py').read())
     return HttpResponse("Ojala se ejecute algo")
+
+
+def login(request):
+    redirect('login/')
