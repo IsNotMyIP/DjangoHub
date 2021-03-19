@@ -12,7 +12,7 @@ from django.shortcuts import render, redirect
 from . import dash_apps
 
 
-@login_required(login_url='login/')
+@login_required(login_url='/login/')
 def test(request):
     question = "oli oli"
     return redirect('/login/')
@@ -22,12 +22,12 @@ def test(request):
 def index(request):
     question = "oli oli"
     return render(request, 'index.html', {'oli': question})
-@login_required(login_url='login/')
+@login_required(login_url='/login/')
 def cigars(request):
     cigarList = Cigar.objects.order_by('-pub_date')
     context = {'cigar_List': cigarList, }
     return render(request, 'cigars.html', context)
-@login_required(login_url='login/')
+@login_required(login_url='/login/')
 def toSmoke(request):
     if request.method == 'POST':
         cigar = Cigar(stopped=-1)
