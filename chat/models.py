@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 # Create your models here.
 class Cigar(models.Model):
-    pub_date = models.DateTimeField("Fecha", default=timezone.now)
+    pub_date = models.DateTimeField("Fecha", default=timezone.localtime)
     stopped = models.IntegerField("evitado")
 
     def __str__(self):
