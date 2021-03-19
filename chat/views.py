@@ -43,4 +43,4 @@ def execu(request):
 
 
 def login(request):
-    redirect('login/')
+    return redirect('login/')
