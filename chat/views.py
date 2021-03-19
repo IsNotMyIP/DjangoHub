@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.shortcuts import render
 from .commands import DummyData
 from django.shortcuts import render, redirect
+from . import dash_apps
 
 
 
