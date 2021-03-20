@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
+import json
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.template import loader
@@ -18,6 +19,12 @@ def test(request):
     else:
         question = "oli oli"
         return redirect('/login/')
+
+def delete(request):
+    cig_id = request.POST['id']
+    print(cig_id)
+    Cigar.objects.filter(id=cig_id).delete()
+    return HttpResponseRedirect(reverse('chat:cigars'))
 # Create your views here.
 def index(request):
     question = "oli oli"
