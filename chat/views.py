@@ -12,13 +12,13 @@ from django.shortcuts import render, redirect
 from . import dash_apps
 
 
-@login_required(login_url='login/')
+@login_required(login_url='/login/')
 def test(request):
     question = "oli oli"
     return redirect('/login/')
 # Create your views here.
 
-@login_required(login_url='login/')
+@login_required(login_url='/login/')
 def index(request):
     question = "oli oli"
     return render(request, 'index.html', {'oli': question})
