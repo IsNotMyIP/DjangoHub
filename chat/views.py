@@ -17,6 +17,8 @@ def dashboard(request):
     question = "oli oli"
     return render(request, 'test.html')
 
+
+@login_required(login_url='/login/')
 def delete(request):
     cig_id = request.POST['id']
     print(cig_id)
