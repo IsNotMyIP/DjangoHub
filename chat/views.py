@@ -12,7 +12,7 @@ from django.shortcuts import render, redirect
 from . import dash_apps
 
 
-@login_required(login_url='/login/')
+@login_required(login_url=(r'^login/$'))
 def test(request):
     question = "oli oli"
     return redirect('/login/')
