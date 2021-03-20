@@ -12,7 +12,7 @@ from django.shortcuts import render, redirect
 from . import dash_apps
 
 
-def test(request):
+def dashboard(request):
     if request.user.is_authenticated:
         print(request.user)
         return render(request, 'test.html')
