@@ -16,26 +16,40 @@ from . import dash_apps
 def dashboard(request):
     question = "oli oli"
     return render(request, 'test.html')
+
+def delete(request):
+    cig_id = request.POST['id']
+    print(cig_id)
+    Cigar.objects.filter(id=cig_id).delete()
+    return HttpResponseRedirect(reverse('chat:cigars'))
+
 # Create your views here.
+
 
 @login_required(login_url='/login/')
 def index(request):
     question = "oli oli"
     return render(request, 'index.html', {'oli': question})
+
+
 @login_required(login_url='/login/')
 def cigars(request):
     cigarList = Cigar.objects.order_by('-pub_date')
     context = {'cigar_List': cigarList, }
     return render(request, 'cigars.html', context)
+
+
 @login_required(login_url='/login/')
 def toSmoke(request):
     if request.method == 'POST':
+        print("holo")
         cigar = Cigar(stopped=-1)
         cigar.save()
         return render(request, 'index.html')
     cigar = Cigar(stopped=1)
     cigar.save()
     return render(request, 'index.html')
+
 
 def execu(request):
     exec(open('/Users/piopio/PycharmProjects/DjangoHub/chat/commands/test.py').read())
