@@ -13,9 +13,9 @@ from . import dash_apps
 
 
 @login_required(login_url='/login/')
-def test(request):
+def dashboard(request):
     question = "oli oli"
-    return redirect('/login/')
+    return render(request, 'test.html')
 # Create your views here.
 
 @login_required(login_url='/login/')
