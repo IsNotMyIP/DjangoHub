@@ -18,7 +18,7 @@ def test(request):
     return redirect('/login/')
 # Create your views here.
 
-@login_required(login_url='login/')
+@login_required(login_url='/login/')
 def index(request):
     question = "oli oli"
     return render(request, 'index.html', {'oli': question})
