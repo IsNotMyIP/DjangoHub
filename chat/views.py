@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
+import json
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.template import loader
@@ -24,7 +25,6 @@ def delete(request):
     print(cig_id)
     Cigar.objects.filter(id=cig_id).delete()
     return HttpResponseRedirect(reverse('chat:cigars'))
-
 # Create your views here.
 
 
@@ -51,7 +51,6 @@ def toSmoke(request):
     cigar = Cigar(stopped=1)
     cigar.save()
     return render(request, 'index.html')
-
 
 def execu(request):
     exec(open('/Users/piopio/PycharmProjects/DjangoHub/chat/commands/test.py').read())
