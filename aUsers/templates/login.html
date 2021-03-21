@@ -1,10 +1,15 @@
-<h2>Iniciar sesión</h2>
+{% extends "newPage.html" %}
 
-<form method="POST">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit">Login</button>
-</form>
+{% block title %}Login{% endblock %}
+{% block content %}
+    <h2>Iniciar sesión</h2>
 
-<hr />
-<a href="/login/register">Registrar usuario</a>
+    <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Login</button>
+    </form>
+
+    <hr />
+    <a href="/login/register">Registrar usuario</a>
+{% endblock %}
